@@ -42,6 +42,26 @@ imgTag.src = photos[count];
 
 }
 
+var dots = document.querySelectorAll(".dot");
 
+function updateDots() {
+    dots.forEach((dot, index) => {
+        if (index === count) {
+            dot.classList.add("active");
+        } else {
+            dot.classList.remove("active");
+        }
+    });
+}
+
+dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+        count = index;
+        imgTag.src = photos[count];
+        updateDots();
+    });
+});
+
+updateDots();
 
 
